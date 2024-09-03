@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "gg6oKdwAnRk=",
+  "dgSpecHash": "8hv9LvpXU0g=",
   "success": true,
-  "projectFilePath": "C:\\Users\\55549\\Desktop\\Portfólio Gui\\Keyworks-master (1)\\Keyworks-master\\backend\\backend.csproj",
+  "projectFilePath": "C:\\Users\\55549\\Desktop\\Portfólio Gui\\Keyworks-master (1)\\Keyworks-Filmes\\backend\\backend.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\55549\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\55549\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",

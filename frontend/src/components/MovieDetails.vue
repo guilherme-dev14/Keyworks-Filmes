@@ -121,7 +121,7 @@ export default {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.397);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -129,14 +129,14 @@ export default {
 }
 
 .movie-details-content {
-  background-color: beige;
+  background-color: rgb(0, 0, 0);
   padding: 30px;
   border-radius: 10px;
   width: 80%;
   max-width: 1000px;
   max-height: 90%;
   overflow-y: auto;
-  color: black;
+  color: rgb(255, 255, 255);
 
 }
 
@@ -203,7 +203,7 @@ export default {
 }
 
 .comments-section li {
-  background-color: #ffffff;
+  background-color: #242424;
   font-size: 20px;
   padding: 10px;
   margin-bottom: 5px;
@@ -226,7 +226,7 @@ export default {
 .new-comment button,
 .close-button {
   padding: 10px 20px;
-  background-color: #000;
+  background-color: #383838;
   color: #fff;
   border: none;
   border-radius: 5px;

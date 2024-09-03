@@ -1,8 +1,20 @@
 <template>
-    <header>
-        <div class="interface">
-        </div>
-    </header>
+  <header>
+    <div class="interface">
+      <button class="menu-button" @click="toggleSidebar">☰</button>
+    </div>
+  </header>
+  <aside v-if="isSidebarVisible" class="sidebar">
+    <ul>
+      <li @click="filterMoviesByYear(2024)">Filmes de 2024</li>
+      <li @click="filterMoviesByYear(2023)">Filmes de 2023</li>
+      <li @click="filterMoviesByYear(2022)">Filmes de 2022</li>
+      <li @click="filterMoviesByYear(2021)">Filmes de 2021</li>
+      <li @click="filterMoviesByYear(2020)">Filmes de 2020 pra trás</li>
+      <li @click="filterMoviesByYear()">Todos Filmes</li>
+    </ul>
+    <button @click="toggleSidebar">Fechar</button>
+  </aside>
     <main>
         <section class="topo-do-site"> <!-- Titulo e Barra de pesquisa-->
             <div class="interface">
@@ -162,15 +174,15 @@ export default defineComponent({
             resposta: '',
             searchQuery: '',
             isFilterModalVisible: false,
+            isNewMovieModalVisible: false,
+            isDeleteConfirmationVisible: false,
+            isSidebarVisible: false,
             selectedMovie: null as any | null,
             selectedGenreId: '',
             selectedStreamingId: '',
             genres: [] as { id: number, name: string }[],
             streaming: [] as { idStreaming: number, name: string }[],
             highRatingOnly: false,
-            isNewMovieModalVisible: false,
-            isMovieDetailsVisible: false,
-            isDeleteConfirmationVisible: false,
             newMovie: {
                 title: '',
                 rating: 0,
@@ -188,7 +200,7 @@ export default defineComponent({
                 genreName: this.getGenreName(movie.genreId),
                 streamingName: this.getStreamingName(movie.streamingId),
                 averageRating: this.getRating(movie.rating),
-                releaseDate: new Date(movie.releaseDate).toLocaleDateString('pt-BR', { year: 'numeric', month: '2-digit', day: '2-digit'})
+                releaseDate: new Date(movie.releaseDate).toLocaleDateString('pt-BR', { year: 'numeric', month: '2-digit', day: '2-digit' })
             }));
         },
         filteredMovies() {
@@ -335,9 +347,27 @@ export default defineComponent({
         getRating(Rating: number) {
             const rating = Math.round(Rating);
             return rating ? rating : 0;
-        }
+        },
+        toggleSidebar() {
+      this.isSidebarVisible = !this.isSidebarVisible;
     },
 
+    filterMoviesByYear(year: number | null) {
+      this.selectedGenreId = '';
+      this.selectedStreamingId = '';
+      this.highRatingOnly = false;
+      this.searchQuery = '';
+      if (year) {
+        if(year === 2020) {
+          this.movies = this.movies.filter(movie => new Date(movie.releaseDate).getFullYear() <= year);
+        } else {
+          this.movies = this.movies.filter(movie => new Date(movie.releaseDate).getFullYear() === year);
+        }
+      } else {
+        this.fetchData();
+      }
+    },
+    },
     mounted() {
         this.loadFilters();
         // this.getMovies();
@@ -622,7 +652,8 @@ section.filmes .flex {
 }
 
 .delete-confirmation-content {
-    background-color: rgb(255, 255, 255);;
+    background-color: rgb(255, 255, 255);
+    ;
     padding: 30px;
     border-radius: 10px;
     width: 400px;
@@ -728,5 +759,51 @@ section.filmes .flex {
 
 .modal-actions button:hover {
     background-color: rgb(95, 95, 95);
+}
+
+.menu-button {
+    cursor: pointer;
+    font-size: 24px;
+    background: none;
+    border: none;
+    color: white;
+    padding: 10px;
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100%;
+    background-color: rgba(49, 49, 49, 0.932);
+    color: white;
+    padding: 20px;
+    z-index: 1000;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    padding: 10px 0;
+    cursor: pointer;
+}
+
+.sidebar ul li:hover {
+    background-color: rgba(0, 0, 0, 0.418);
+}
+
+.sidebar button {
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    margin-top: 20px;
+    width: 100%;
 }
 </style>

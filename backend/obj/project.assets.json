@@ -4715,11 +4715,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\55549\\Desktop\\Portfólio Gui\\Keyworks-master (1)\\Keyworks-master\\backend\\backend.csproj",
+      "projectUniqueName": "C:\\Users\\55549\\Desktop\\Portfólio Gui\\Keyworks-master (1)\\Keyworks-Filmes\\backend\\backend.csproj",
       "projectName": "backend",
-      "projectPath": "C:\\Users\\55549\\Desktop\\Portfólio Gui\\Keyworks-master (1)\\Keyworks-master\\backend\\backend.csproj",
+      "projectPath": "C:\\Users\\55549\\Desktop\\Portfólio Gui\\Keyworks-master (1)\\Keyworks-Filmes\\backend\\backend.csproj",
       "packagesPath": "C:\\Users\\55549\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\55549\\Desktop\\Portfólio Gui\\Keyworks-master (1)\\Keyworks-master\\backend\\obj\\",
+      "outputPath": "C:\\Users\\55549\\Desktop\\Portfólio Gui\\Keyworks-master (1)\\Keyworks-Filmes\\backend\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\55549\\AppData\\Roaming\\NuGet\\NuGet.Config"
